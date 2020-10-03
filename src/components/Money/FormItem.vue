@@ -2,7 +2,7 @@
 <div>
     <label class="formItem">
         <span class="name">{{this.fieldName}}</span>
-        <input type="text" :value="value" @input=onValueChanged($event.target.value) :placeholder="this.placeholder">
+        <input type="text" :value="value" @input=onValueChanged($event.target.value) :placeholder="placeholder">
     </label>
 </div>
 </template>
@@ -24,7 +24,6 @@ export default class FormItem extends Vue {
     }) fieldName!: string;
     // eslint-disable-next-line @typescript-eslint/type-annotation-spacing
     @Prop() placeholder ? : string;
-    @Watch('value')
     onValueChange(value: string) {
         this.$emit('update:value', value);
     }
