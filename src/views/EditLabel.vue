@@ -35,6 +35,7 @@ export default class EditLabel extends Vue {
             this.$router.replace('/404');
         }
     }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     update(name: string) {
         // eslint-disable-next-line no-empty
         if (this.tag) {}
