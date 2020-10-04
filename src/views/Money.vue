@@ -26,13 +26,11 @@ import {
         Types,
         NumberPad
     },
-    computed: {
-        recordList() {
-            return this.$store.state.recordList;
-        }
-    }
 })
 export default class Money extends Vue {
+    get recordList() {
+        return this.$store.state.recordList;
+    }
     record: RecordItem = {
         tags: [],
         notes: '',
@@ -40,7 +38,7 @@ export default class Money extends Vue {
         amount: 0
     };
     created() {
-        this.$store.commit('fetchRecords')
+        this.$store.commit('fetchRecords');
     }
     onUpdateNotes(value: string) {
         this.record.notes = value;
