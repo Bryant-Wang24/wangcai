@@ -18,6 +18,5 @@ type TagListModel = {
   save: () => void;
 };
 
-interface Window {
-  
+interface Window {  
 }

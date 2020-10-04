@@ -4,6 +4,8 @@
     <Types :value.sync="record.type" />
     <FormItem field-name="备注" placeholder="在这里输入备注" @update:value="onUpdateNotes" />
     <Tags />
+    {{count}}
+    <button @click="add">+1</button>
 </Layout>
 </template>
 
@@ -16,7 +18,7 @@ import Tags from '@/components/Money/Tags.vue';
 import {
     Component
 } from 'vue-property-decorator';
-import store from '@/store/index2.ts';
+import oldStore from '@/store/index2.ts';
 
 @Component({
     components: {
@@ -24,10 +26,15 @@ import store from '@/store/index2.ts';
         FormItem,
         Types,
         NumberPad
+    },
+    computed: {
+        recordList() {
+            return this.$store.state.count;
+        }
     }
 })
 export default class Money extends Vue {
-    recordList = store.recordList;
+    recordList = oldStore.recordList;
     record: RecordItem = {
         tags: [],
         notes: '',
@@ -38,7 +45,7 @@ export default class Money extends Vue {
         this.record.notes = value;
     }
     saveRecord() {
-        store.createRecord(this.record);
+        oldStore.createRecord(this.record);
     }
 }
 </script>
