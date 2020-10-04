@@ -4,8 +4,6 @@
     <Types :value.sync="record.type" />
     <FormItem field-name="备注" placeholder="在这里输入备注" @update:value="onUpdateNotes" />
     <Tags />
-    {{count}}
-    <button @click="add">+1</button>
 </Layout>
 </template>
 
