@@ -32,19 +32,29 @@ export default class EditLabel extends Vue {
         return this.$store.state.currentTag;
     }
     created() {
+        const id = this.$route.params.id;
+        this.$store.commit('fetchTags');
+        this.$store.commit('setCurrentTag', id);
         if (!this.tag) {
             this.$router.replace('/404');
+        } else {
+            console.log('has tag');
         }
     }
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     update(name: string) {
         // eslint-disable-next-line no-empty
-        if (this.tag) {}
+        if (this.tag) {
+            this.$store.commit('updateTag', {
+                id: this.tag.id,
+                name
+            });
+        }
     }
     remove() {
         // eslint-disable-next-line no-empty
         if (this.tag) {
-            return;
+            this.$store.commit('removeTag', this.tag.id);
         }
     }
     goBack() {
