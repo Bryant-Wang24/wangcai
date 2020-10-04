@@ -25,11 +25,12 @@ import Button from '@/components/Button.vue';
     components: {
         FormItem,
         Button
-    }
+    },
 })
 export default class EditLabel extends Vue {
-    // eslint-disable-next-line @typescript-eslint/type-annotation-spacing
-    tag ? : Tag = undefined;
+    get tag() {
+        return this.$store.state.currentTag;
+    }
     created() {
         if (!this.tag) {
             this.$router.replace('/404');
@@ -43,7 +44,7 @@ export default class EditLabel extends Vue {
     remove() {
         // eslint-disable-next-line no-empty
         if (this.tag) {
-            return
+            return;
         }
     }
     goBack() {
