@@ -27,6 +27,11 @@ export default class Tabs extends Vue {
     @Prop(String)
     // eslint-disable-next-line @typescript-eslint/type-annotation-spacing
     classPrefix ? : string;
+    @Prop({
+        type: String,
+        default: '64px'
+    })
+    height!: string;
     liClass(item: DataSourceItem) {
         return {
             [this.classPrefix + '-tabs-item']: this.classPrefix,
