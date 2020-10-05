@@ -10,9 +10,11 @@
 </template>
 
 <script lang="ts">
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import Vue from 'vue'
 import {
     Component,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     Prop
 } from 'vue-property-decorator'
 import {

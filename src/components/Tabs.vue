@@ -12,8 +12,8 @@ import {
     Prop
 } from 'vue-property-decorator';
 type DataSourceItem = {
-    text: string,
-    value: string
+    text: string;
+    value: string;
 }
 @Component
 export default class Tabs extends Vue {
@@ -25,6 +25,7 @@ export default class Tabs extends Vue {
     @Prop(String)
     readonly value!: string;
     @Prop(String)
+    // eslint-disable-next-line @typescript-eslint/type-annotation-spacing
     classPrefix ? : string;
     liClass(item: DataSourceItem) {
         return {
