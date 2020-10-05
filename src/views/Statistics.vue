@@ -6,7 +6,6 @@
 </template>
 
 <script lang="ts">
-import Types from '@/components/Money/Types.vue';
 import Vue from 'vue';
 import {
     Component
@@ -17,7 +16,6 @@ import recordTypeList from '@/constants/recordTypeList';
 @Component({
     components: {
         Tabs,
-        Types
     },
 })
 export default class Statistics extends Vue {
