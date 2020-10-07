@@ -24,6 +24,7 @@ import {
     Component
 } from "vue-property-decorator";
 import Tabs from "@/components/Tabs.vue";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import intervalList from "@/constants/intervalList";
 import recordTypeList from "@/constants/recordTypeList";
 import dayjs from 'dayjs';
@@ -65,10 +66,14 @@ export default class Statistics extends Vue {
         const newList = clone(recordList)
             .filter(r => r.type === this.type)
             .sort((a, b) => dayjs(b.createdAt).valueOf() - dayjs(a.createdAt).valueOf());
+        if (newList.length === 0) {
+            return [];
+        }
         type Result = {
-            title: string,
-            total ? : number,
-            items: RecordItem[]
+            title: string;
+            // eslint-disable-next-line @typescript-eslint/type-annotation-spacing
+            total ? : number;
+            items: RecordItem[];
         } []
         const result: Result = [{
             title: dayjs(newList[0].createdAt).format('YYYY-MM-DD'),
