@@ -24,7 +24,7 @@ export default class FormItem extends Vue {
     }) fieldName!: string;
     // eslint-disable-next-line @typescript-eslint/type-annotation-spacing
     @Prop() placeholder ? : string;
-    onValueChange(value: string) {
+    onValueChanged(value: string) {
         this.$emit('update:value', value);
     }
 }
